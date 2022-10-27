@@ -30,6 +30,11 @@ body {
 a {
     text-decoration: none;
     color: dodgerblue;
+    transition: color 200ms ease;
+}
+
+a:hover {
+    color: deepskyblue;
 }
 
 html {
@@ -136,6 +141,7 @@ h1 {
     flex-direction: column;
 
     padding: 2rem;
+    padding-bottom: 3rem;
 }
 
 .promoting * {
@@ -146,6 +152,10 @@ h1 {
     margin: 0 auto;
 
     padding-bottom: 1rem;
+}
+
+.promo-container span{
+    text-decoration: underline;
 }
 
 .games-promo {
@@ -162,7 +172,9 @@ h1 {
 
 .big-img {
     width: 50%;
+    transition: all 300ms ease;
 }
+
 
 .small-img {
     display: grid;
@@ -173,9 +185,27 @@ h1 {
     width: 35%;
 }
 
-.small-img img {
+.img-preview {
     width: 100%;
     object-fit: cover;
+
+    opacity: 50%;
+    transition: opacity 300ms ease;
+}
+
+.img-preview:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* Chooser */
+
+.chooser-section {
+    padding: 2rem;
+}
+
+.chooser-captions {
+    text-align: center;
 }
 
 

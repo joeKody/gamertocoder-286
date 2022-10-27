@@ -43,31 +43,36 @@
 
         <section class="promoting">
             <div class="promo-container">
-                <h2>🔥🔥🔥Hottest games of Blockman GO🔥🔥🔥</h2>
+                <h2>🔥🔥🔥<span>Hottest games in Blockman GO</span>🔥🔥🔥</h2>
             </div>
             <div class="games-promo">
                 <div class="small-img">
-                    <img src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Bed%20Wars%20Banner%20%5B900x524%5D.jpg"/>
-                    <img src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Sky%20Block%20Banner%20%5B900x524%5D.jpg"/>
-                    <img src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Egg%20War%20Banner%20%5B900x524%5D.jpg"/>
-                    <img src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/District%2013%20%5B900x524%5D.png"/>
-                    <img src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Free%20City%20RP%20Banner%20%5B900x524%5D.jpg"/>
-                    <img src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Frontline%20Banner%20%5B900x524%5D.jpg"/>
-                    <img src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Party%20Street%20Banner%20%5B900x524%5D.jpg"/>
-                    <img src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Jail%20Break%20Banner%20%5B900x524%5D.jpg"/>
-                    <img src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Lucky%20Block%20Banner%20%5B900x524%5D.jpg"/>
-                    <img src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Hero%20Tycoon%20Banner%20%5B900x524%5D.jpg"/>
-                    <img src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/The%20Exorcists%20Banner%20%5B900x524%5D.jpg"/>
-                    <img src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Bullets%20Fly%20Banner%20%5B900x524%5D.jpg" />
+                    <img class="img-preview" onclick="change_big_img(select_small_img('1'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Bed%20Wars%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('2'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Sky%20Block%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('3'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Free%20City%20RP%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('4'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Party%20Street%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('5'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Bullets%20Fly%20Banner%20%5B900x524%5D.jpg" />
+                    <img class="img-preview" onclick="change_big_img(select_small_img('6'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/The%20Exorcists%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('7'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/District%2013%20%5B900x524%5D.png"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('8'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Hero%20Tycoon%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('9'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Jail%20Break%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('10'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Egg%20War%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('11'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Lucky%20Block%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('12'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Frontline%20Banner%20%5B900x524%5D.jpg"/>
                 </div>
-                <img class="big-img" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Hero%20Tycoon%20Carousel%201%20%5B1024x540%5D.jpg"/>
+                <img class="big-img" id="big-image" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Bed%20Wars%20Banner%20%5B900x524%5D.jpg"/>
             </div>
         </section>
 
 
         <section class="chooser-section">
-            <div class="chooser-container" id="game-chooser">
+            <div class="chooser-captions">
+                <h2>🎉 Game Chooser 🎉</h2>
+                <h3>Choose the option that reflects you the most</h3>
+            </div>
 
+            <div class="chooser-container" id="game-chooser">
+                <!-- PLACEHOLDER -->
             </div>
 
         </section>
@@ -82,6 +87,8 @@
         <br/>
         <span>Joe and Saki</span>
     </footer>
+
+    <script src="js/script.js"></script>
 
 </body>
 </html>
