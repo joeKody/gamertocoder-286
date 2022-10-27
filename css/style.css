@@ -1,0 +1,44 @@
+/* 
+My CSS coding pattern
+----------------
+selector {
+
+    position related
+
+    margin, padding, borders
+
+    styling, colors, decorations, fonts
+}
+----------------
+*/
+
+/* Setting up general stuff */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: white;
+    background-color: #272727;
+}
+
+a {
+    text-decoration: none;
+    color: green;
+}
+
+
+/* Menu bar */
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    padding: 1rem;
+
+    background-color: #1f1f1f;
+}
+
