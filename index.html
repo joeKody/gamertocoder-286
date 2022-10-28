@@ -30,7 +30,7 @@
                     <h1>Blockman GO game chooser✨✨</h1>
                     <br/>
                     <h2>Don't know which game to play in Blockman GO?</h2>
-                    <p>You've come to the right place! Our website will <a href="#game-chooser-section">choose</a> at least one game for you! Just choose genre of your likings and done!</p>
+                    <p>You've come to the right place! Our website will <a href="#game-chooser-section">choose</a> at least one game for you! Just choose genre of your likings and enjoy!</p>
                     <br/>
                     <h2>We also have more features!</h2>
                     <p>which i don't wanna do yet</p>
@@ -44,6 +44,7 @@
         <section class="promoting">
             <div class="promo-container">
                 <h2>🔥🔥🔥<span>Hottest games in Blockman GO</span>🔥🔥🔥</h2>
+                <span>Do you really need our site? You might wanna try these out!</span>
             </div>
             <div class="games-promo">
                 <div class="small-img">
@@ -76,33 +77,52 @@
                 <!-- PLACEHOLDER -->
 
                 <ul class="question">
+                <form id="choose-game-form" >
                     <li>
-                        <span class="question-text">Question 1</span>
-                        <input>
+                        <span class="question-text">I like to be alone more than being with more people</span>
+                        <label for="multiplayer-1"><input class="genre-input" type="radio" value="yes" name="multiplayer" id="multiplayer-1"/>Yes</label>
+                        <label for="multiplayer-2"><input class="genre-input" type="radio" value="no" name="multiplayer" id="multiplayer-2"/>No</label>
+                        <label for="multiplayer-3"><input class="genre-input" type="radio" value="both" name="multiplayer" id="multiplayer-3"/>Not sure</label>
                     </li>
                     <li>
-                        <span class="question-text">Question 2</span>
-                        <input>    
+                        <span class="question-text">Playing a role is enjoyable for me</span>
+                        <label for="rpg-1"><input class="genre-input" type="radio" value="yes" name="rpg" id="rpg-1"/>Yes</label>    
+                        <label for="rpg-2"><input class="genre-input" type="radio" value="no" name="rpg" id="rpg-2"/>No</label>    
+                        <label for="rpg-3"><input class="genre-input" type="radio" value="both" name="rpg" id="rpg-3"/>Not sure</label>    
                     </li>
                     <li>
-                        <span class="question-text">Question 3</span>
-                        <input>
+                        <span class="question-text">I am good at decision and fast in reasoning</span>
+                        <label for="action-1"><input class="genre-input" type="radio" value="yes" name="action" id="action-1"/>Yes</label>
+                        <label for="action-2"><input class="genre-input" type="radio" value="no" name="action" id="action-2"/>No</label>
+                        <label for="action-3"><input class="genre-input" type="radio" value="both" name="action" id="action-3"/>Not sure</label>
                     </li>
                     <li>
-                        <span class="question-text">Question 4</span>
-                        <input>
+                        <span class="question-text">I have fun competing with other people</span>
+                        <label for="pvp-1"><input class="genre-input" type="radio" value="yes" name="pvp" id="pvp-1"/>Yes</label>
+                        <label for="pvp-2"><input class="genre-input" type="radio" value="no" name="pvp" id="pvp-2"/>No</label>
+                        <label for="pvp-3"><input class="genre-input" type="radio" value="both" name="pvp" id="pvp-3"/>Not sure</label>
                     </li>
                     <li>
-                        <span class="question-text">Question 5</span>
-                        <input>
+                        <span class="question-text">Exploring and adventuring is fun for me</span>
+                        <label for="open-world-1"><input class="genre-input" type="radio" value="yes" name="open-world" id="open-world-1"/>Yes</label>
+                        <label for="open-world-2"><input class="genre-input" type="radio" value="no" name="open-world" id="open-world-2"/>No</label>
+                        <label for="open-world-3"><input class="genre-input" type="radio" value="both" name="open-world" id="open-world-3"/>Not sure</label>
                     </li>
                     <li>
-                        <span class="question-text">Question 6</span>
-                        <input>
+                        <span class="question-text">I consider myself creative</span>
+                        <label for="sandbox-1"><input required class="genre-input" type="radio" value="yes" name="sandbox" id="sandbox-1"/>Yes</label>
+                        <label for="sandbox-2"><input required class="genre-input" type="radio" value="no" name="sandbox" id="sandbox-2"/>No</label>
+                        <label for="sandbox-3"><input required class="genre-input" type="radio" value="both" name="sandbox" id="sandbox-3"/>Not sure</label>
                     </li>
                 </ul>
                 
-                <button type="submit" id="choose-game-btn">Choose my game!</button>
+                <button type="button" id="choose-game-btn">Choose my game!</button>
+
+                </form>
+
+                <div id="chosen-game">
+                    
+                </div>
 
             </div>
 

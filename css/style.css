@@ -45,6 +45,8 @@ html {
 
 nav {
     /* position: sticky; */
+    top: 0;
+    z-index: 3;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -150,11 +152,11 @@ h1 {
 
 .promo-container {
     margin: 0 auto;
-
+    text-align: center;
     padding-bottom: 1rem;
 }
 
-.promo-container span{
+.promo-container > h2 >span{
     text-decoration: underline;
 }
 
@@ -198,6 +200,10 @@ h1 {
     cursor: pointer;
 }
 
+.active-preview {
+    border: 3px solid sandybrown;
+}
+
 /* Chooser */
 
 .chooser-section {
@@ -224,12 +230,23 @@ h1 {
     font-size: 1.5rem;
 }
 
-.question > li {
+.question li {
     margin-bottom: 1.4rem;
 }
 
 .question-text {
     display: block;
+    margin: 0.5rem 0;
+}
+
+.question input {
+    /* display: none; */
+}
+
+.question label {
+    margin: 0.2rem;
+    padding: 0.3rem;
+    border: 2px solid white;
 }
 
 #choose-game-btn {
