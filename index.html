@@ -12,28 +12,112 @@
 
     <nav>
         <div class="logo">
-            <a href="#">LOGO<img /></a>
+            <a href="#"><img alt="blockman-logo" src="https://cdngarenanow-a.akamaihd.net/webth/cdn/garena/gamertocoder/bmg-logo/01.png"/></a>
         </div>
         <div class="links">
-            links
+            <ul class="menu-links">
+                <li title="About this website"><a href="#about">About</a></li>
+                <li title="Official site"><a href="https://blockmango.garena.com/">Blockman GO</a></li>
+                <li title="Contact"><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
-
     
     <main>
         <header>
-            <h1>----Garena GTC Contest----</h1>
+            <div id="about">
+                <div class="about-text">
+                    <h1>Blockman GO game chooser✨✨</h1>
+                    <br/>
+                    <h2>Don't know which game to play in Blockman GO?</h2>
+                    <p>You've come to the right place! Our website will <a href="#game-chooser-section">choose</a> at least one game for you! Just choose genre of your likings and done!</p>
+                    <br/>
+                    <h2>We also have more features!</h2>
+                    <p>which i don't wanna do yet</p>
+            </div>
+            <div class="banner">
+                <img id="games-about" src="https://cdngarenanow-a.akamaihd.net/webth/cdn/garena/gamertocoder/bmg-wallpaper/01.jpg" alt="games-about" />
+            </div>
+            </div>
         </header>
 
+        <section class="promoting">
+            <div class="promo-container">
+                <h2>🔥🔥🔥<span>Hottest games in Blockman GO</span>🔥🔥🔥</h2>
+            </div>
+            <div class="games-promo">
+                <div class="small-img">
+                    <img class="img-preview" onclick="change_big_img(select_small_img('1'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Bed%20Wars%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('2'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Sky%20Block%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('3'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Free%20City%20RP%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('4'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Party%20Street%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('5'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Bullets%20Fly%20Banner%20%5B900x524%5D.jpg" />
+                    <img class="img-preview" onclick="change_big_img(select_small_img('6'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/The%20Exorcists%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('7'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/District%2013%20%5B900x524%5D.png"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('8'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Hero%20Tycoon%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('9'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Jail%20Break%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('10'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Egg%20War%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('11'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Lucky%20Block%20Banner%20%5B900x524%5D.jpg"/>
+                    <img class="img-preview" onclick="change_big_img(select_small_img('12'))" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Frontline%20Banner%20%5B900x524%5D.jpg"/>
+                </div>
+                <img class="big-img" id="big-image" src="https://resource.blockmanmobile.com/web/BMGOfficialWebsite/miniGame/Bed%20Wars%20Banner%20%5B900x524%5D.jpg"/>
+            </div>
+        </section>
 
 
+        <section class="chooser-section" id="game-chooser-section">
+            
+            <div class="chooser-captions">
+                <h2>🎉 Game Chooser 🎉</h2>
+                <h3>Choose the option that reflects you the most</h3>
+            </div>
+
+            <div class="chooser-container">
+                <!-- PLACEHOLDER -->
+
+                <ul class="question">
+                    <li>
+                        <span class="question-text">Question 1</span>
+                        <input>
+                    </li>
+                    <li>
+                        <span class="question-text">Question 2</span>
+                        <input>    
+                    </li>
+                    <li>
+                        <span class="question-text">Question 3</span>
+                        <input>
+                    </li>
+                    <li>
+                        <span class="question-text">Question 4</span>
+                        <input>
+                    </li>
+                    <li>
+                        <span class="question-text">Question 5</span>
+                        <input>
+                    </li>
+                    <li>
+                        <span class="question-text">Question 6</span>
+                        <input>
+                    </li>
+                </ul>
+                
+                <button type="submit" id="choose-game-btn">Choose my game!</button>
+
+            </div>
+
+        </section>
 
     </main>
 
 
-    <footer>
-        <!-- PLACEHOLDER -->
+    <footer id="contact">
+        <span>Made for Garena Gamer to Coder contest.</span><br/>
+        <span>by team Expected";"</span><br/>
+        <span>Joe and Saki</span>
     </footer>
+
+    <script src="js/script.js"></script>
 
 </body>
 </html>
