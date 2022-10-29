@@ -1,5 +1,16 @@
 // Variables
 
+// get the data from api
+var api_data;
+fetch("https://gamertocoder.garena.co.th/api/minigames")
+.then((response) => {if (response.status === 200){return response.json()} return response.status})
+    .then((data) => {
+        api_data = data;
+    })
+    .catch((data) => console.log(data))
+.catch((response) => {console.log(response.status)});
+
+
 const big_img = document.getElementById("big-image");
 var index = 2;
 
@@ -50,17 +61,54 @@ choose_game_btn.addEventListener("click", ()=>{
     genre_results_keys = Object.keys(genre_results);
     var container = select('#chosen-game-container');
     container.innerHTML = '';
-    if (!genre_results_keys.length === 6){
-        
+    if (genre_results_keys.length !== 6){
         container.innerHTML = '<h2>You select choose all the options first!</h2>'
     } else {
-        for (var x = 0; x < genre_results_keys.length; x++){
+
+        for (var j = 0; j < api_data.length; j++)
+        {   
+            var current_game = api_data[j];
+            current_game['like'] = 0;
+
+            for (var x = 0; x < genre_results_keys.length; x++)
+            {   
+                var current_key = genre_results_keys[x];
+                for (var k = 0; k < current_game.genre.length; k++)
+                {
+                    console.log(current_game.genre[k]);
+                    // console.log(current_game.genre[k]);
+                    // current_game.genre[k] = current_game.genre[k].toLowerCase()
+                    if (current_game.genre[k].toLowerCase().includes(current_key)){
+                        if (genre_results[current_key] == 'yes'){
+                            current_game['like'] += 2;
+                        } else if (genre_results[current_key] == 'no') {
+                            current_game['like'] -= 1;
+                        }
+                    }
+                }
+            
+            }
+
+           
+
+        }
+
+        var game_like_list = [];
+        for (var i = 0; i < api_data.length; i++){
+            game_like_list.push({});
+            game_like_list[i]['name'] = api_data[i].name;
+            game_like_list[i]['like'] = api_data[i].like;
+        }
+
+        game_like_list.sort((a, b) =>  b.like - a.like);
+
+        for (var y = 0; y < 4; y++){
             var box = document.createElement('div');
             var txt = document.createElement('span');
-            box.classList.add("chosen-game");
-            txt.innerText = genre_results_keys[x];
-            txt.innerText += " : " + genre_results[txt.innerText];
-            box.appendChild(txt);
+            txt.innerText = game_like_list[y].name;
+            txt.innerText += ' : ' + game_like_list[y].like;
+            
+            box.append(txt);
             container.appendChild(box);
         }
 
