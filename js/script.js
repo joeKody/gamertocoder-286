@@ -8,7 +8,7 @@ fetch("https://gamertocoder.garena.co.th/api/minigames")
         api_data = data;
     })
     .catch((data) => console.log(data))
-.catch((response) => {console.log(response.status)});
+.catch((response) => {console.log(response)});
 
 
 const big_img = document.getElementById("big-image");
@@ -49,7 +49,6 @@ setInterval(() => {
 var choose_game_btn = select('#choose-game-btn');
 choose_game_btn.addEventListener("click", ()=>{
     var genre_inputs = document.getElementsByClassName("genre-input");
-    console.log(genre_inputs);
     let genre_results = {};
     // add value of genre with checked inputs
     for (var x = 0; x < genre_inputs.length; x++){
@@ -62,7 +61,8 @@ choose_game_btn.addEventListener("click", ()=>{
     var container = select('#chosen-game-container');
     container.innerHTML = '';
     if (genre_results_keys.length !== 6){
-        container.innerHTML = '<h2>You select choose all the options first!</h2>'
+        container.innerHTML = '<h2>You select choose all the options first!</h2>';
+        container.style.display = 'block';
     } else {
 
         for (var j = 0; j < api_data.length; j++)
@@ -75,9 +75,6 @@ choose_game_btn.addEventListener("click", ()=>{
                 var current_key = genre_results_keys[x];
                 for (var k = 0; k < current_game.genre.length; k++)
                 {
-                    console.log(current_game.genre[k]);
-                    // console.log(current_game.genre[k]);
-                    // current_game.genre[k] = current_game.genre[k].toLowerCase()
                     if (current_game.genre[k].toLowerCase().includes(current_key)){
                         if (genre_results[current_key] == 'yes'){
                             current_game['like'] += 2;
@@ -98,24 +95,57 @@ choose_game_btn.addEventListener("click", ()=>{
             game_like_list.push({});
             game_like_list[i]['name'] = api_data[i].name;
             game_like_list[i]['like'] = api_data[i].like;
+            game_like_list[i]['index']= api_data[i].no - 1;
         }
 
         game_like_list.sort((a, b) =>  b.like - a.like);
+        console.log(game_like_list);
 
-        for (var y = 0; y < 4; y++){
+        var games_amount = 4;
+        
+        for (var y = 0; y < games_amount; y++){
             var box = document.createElement('div');
-            var txt = document.createElement('span');
-            txt.innerText = game_like_list[y].name;
-            txt.innerText += ' : ' + game_like_list[y].like;
+            var fig = document.createElement('figure');
+            var capt = document.createElement('figcaption');
+            var title = document.createElement('h3');
+            var level = document.createElement('span');
+            var img = document.createElement('img');
+
+            title.innerText = game_like_list[y].name;
+            title.style.marginBottom = '0.5rem';
+            img.src = api_data[game_like_list[y].index].icon;
             
-            box.append(txt);
+            if (game_like_list[y].like === game_like_list[y+1].like){
+                box.style.display = 'inline-block';
+            }
+            if (y!== 0 && game_like_list[y].like === game_like_list[y-1].like){
+                box.style.display = 'inline-block';
+                if (games_amount < 6){
+                    games_amount++;
+                } 
+            }
+
+            if (y < 4){
+                level.innerText = 'The most compatible games for you!';
+            } else if (game_like_list[y].like > 1) {
+                level.innerText = 'A game you also will like! You might love it!';
+            } else {
+                level.innerText = 'You should give this game a try too!';
+            }
+
+            img.style.padding = '1rem';
+            fig.appendChild(capt);
+            capt.appendChild(title);
+            capt.appendChild(level);
+            fig.appendChild(img);
+            box.appendChild(fig);
+            box.classList.add('chosen-game');
             container.appendChild(box);
         }
-
+    container.style.display = 'grid';
+    container.style.placeItems = 'center';
+    container.style.gridTemplateColumns = 'repeat(3, minmax(200px, 1fr))';
     }
-    container.style.display = 'flex';
-    container.style.flexDirection = 'column';
-    container.style.justifyContent = 'center';
-    container.style.alignItems = 'center';
+    
 });
 
