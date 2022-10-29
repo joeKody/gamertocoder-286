@@ -48,14 +48,16 @@ choose_game_btn.addEventListener("click", ()=>{
         }
     }
     genre_results_keys = Object.keys(genre_results);
-    var container = select('#chosen-game');
-    if (genre_results_keys.length === 0){
+    var container = select('#chosen-game-container');
+    container.innerHTML = '';
+    if (!genre_results_keys.length === 6){
         
         container.innerHTML = '<h2>You select choose all the options first!</h2>'
     } else {
         for (var x = 0; x < genre_results_keys.length; x++){
             var box = document.createElement('div');
             var txt = document.createElement('span');
+            box.classList.add("chosen-game");
             txt.innerText = genre_results_keys[x];
             txt.innerText += " : " + genre_results[txt.innerText];
             box.appendChild(txt);
@@ -63,6 +65,9 @@ choose_game_btn.addEventListener("click", ()=>{
         }
 
     }
-    container.style.display = 'block';
+    container.style.display = 'flex';
+    container.style.flexDirection = 'column';
+    container.style.justifyContent = 'center';
+    container.style.alignItems = 'center';
 });
 
