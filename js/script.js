@@ -126,7 +126,7 @@ choose_game_btn.addEventListener("click", ()=>{
             }
 
             if (y < 4){
-                level.innerText = 'The most compatible games for you!';
+                level.innerText = 'The most compatible game for you!';
             } else if (game_like_list[y].like > 1) {
                 level.innerText = 'A game you also will like! You might love it!';
             } else {
@@ -134,18 +134,33 @@ choose_game_btn.addEventListener("click", ()=>{
             }
 
             img.style.padding = '1rem';
+            img.style.borderRadius = '2rem';
             fig.appendChild(capt);
             capt.appendChild(title);
             capt.appendChild(level);
             fig.appendChild(img);
             box.appendChild(fig);
             box.classList.add('chosen-game');
+            box.style.boxShadow = '0 0 20px #1f1f1f'
             container.appendChild(box);
+            // box.children.length
         }
+    
+    for (var i = 0; i < container.children.length; i++){
+        container.children.item(i).style.opacity = '0%';
+    }
+    
     container.style.display = 'grid';
     container.style.placeItems = 'center';
     container.style.gridTemplateColumns = 'repeat(3, minmax(200px, 1fr))';
+    
+    setTimeout(() => {
+    for (var i = 0; i < container.children.length; i++){
+        container.children.item(i).style.opacity = '100%';
     }
+    }, 10)
+    
+}
     
 });
 
