@@ -166,7 +166,7 @@ choose_game_btn.addEventListener("click", ()=>{
                 anchor.href = "https://blockmango.garena.com/mini_games/article/en/9/";
             } else if (current_name_like.includes("build")){
                 anchor.href = "https://pc.blockmanmobile.com/#/game-details/g1042?onlineNumber=1991";
-            } else if (current_name_like.includes("skyblock")){
+            } else if (current_name_like.includes("sky")){
                 anchor.href = "https://blockmango.garena.com/mini_games/article/en/2/";
             } else if (current_name_like.includes("egg")){
                 anchor.href = "https://blockmango.garena.com/mini_games/article/en/3/";
