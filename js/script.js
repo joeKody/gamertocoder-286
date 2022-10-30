@@ -61,7 +61,7 @@ choose_game_btn.addEventListener("click", ()=>{
     var container = select('#chosen-game-container');
     container.innerHTML = '';
     if (genre_results_keys.length !== 6){
-        container.innerHTML = '<h2>You select choose all the options first!</h2>';
+        container.innerHTML = '<h2>You have to select choose all the options first!</h2>';
         container.style.display = 'block';
     } else {
 
@@ -75,7 +75,22 @@ choose_game_btn.addEventListener("click", ()=>{
                 var current_key = genre_results_keys[x];
                 for (var k = 0; k < current_game.genre.length; k++)
                 {
-                    if (current_game.genre[k].toLowerCase().includes(current_key)){
+                    var current_genre = current_game.genre[k].toLowerCase();
+                    if (current_genre.includes("simulat")){
+                        current_genre = "rpg";
+                    } else if (current_genre.includes("shoot") || current_genre.includes("party") || current_genre.includes("horror")){
+                        current_genre = "action";
+                    } else if(current_genre.includes("battle")){
+                        current_genre = "pvp open-world multiplayer";
+                    } else if (current_genre.includes("open")){
+                        current_genre = "open-world";
+                    } else if (current_game.name.toLowerCase().includes("build")){
+                        current_genre = "pvp action sandbox";
+                    } else if (current_genre.includes("survi")){
+                        current_genre = "sandbox";
+                    }
+                    
+                    if (current_genre.includes(current_key)){
                         if (genre_results[current_key] == 'yes'){
                             current_game['like'] += 2;
                         } else if (genre_results[current_key] == 'no') {
@@ -93,13 +108,17 @@ choose_game_btn.addEventListener("click", ()=>{
         var game_like_list = [];
         for (var i = 0; i < api_data.length; i++){
             game_like_list.push({});
-            game_like_list[i]['name'] = api_data[i].name;
-            game_like_list[i]['like'] = api_data[i].like;
-            game_like_list[i]['index']= api_data[i].no - 1;
+            var current_game_like = game_like_list[i];
+            if (api_data[i].name.includes("Egg")){
+                current_game_like['name'] = "Egg War"
+            } else {
+                current_game_like['name'] = api_data[i].name;
+            }
+            current_game_like['like'] = api_data[i].like;
+            current_game_like['index']= api_data[i].no - 1;
         }
 
         game_like_list.sort((a, b) =>  b.like - a.like);
-        console.log(game_like_list);
 
         var games_amount = 4;
         
@@ -115,18 +134,14 @@ choose_game_btn.addEventListener("click", ()=>{
             title.style.marginBottom = '0.5rem';
             img.src = api_data[game_like_list[y].index].icon;
             
-            if (game_like_list[y].like === game_like_list[y+1].like){
-                box.style.display = 'inline-block';
-            }
             if (y!== 0 && game_like_list[y].like === game_like_list[y-1].like){
-                box.style.display = 'inline-block';
                 if (games_amount < 6){
                     games_amount++;
                 } 
             }
 
             if (y < 4){
-                level.innerText = 'The most compatible games for you!';
+                level.innerText = 'The most compatible game for you!';
             } else if (game_like_list[y].like > 1) {
                 level.innerText = 'A game you also will like! You might love it!';
             } else {
@@ -134,18 +149,32 @@ choose_game_btn.addEventListener("click", ()=>{
             }
 
             img.style.padding = '1rem';
+            img.style.borderRadius = '2rem';
             fig.appendChild(capt);
             capt.appendChild(title);
             capt.appendChild(level);
             fig.appendChild(img);
             box.appendChild(fig);
             box.classList.add('chosen-game');
+            box.style.boxShadow = '0 0 20px #1f1f1f'
             container.appendChild(box);
         }
+    
+    for (var i = 0; i < container.children.length; i++){
+        container.children.item(i).style.opacity = '0%';
+    }
+
     container.style.display = 'grid';
     container.style.placeItems = 'center';
     container.style.gridTemplateColumns = 'repeat(3, minmax(200px, 1fr))';
+    
+    setTimeout(() => {
+    for (var i = 0; i < container.children.length; i++){
+        container.children.item(i).style.opacity = '100%';
     }
+    }, 10)
+    
+}
     
 });
 
