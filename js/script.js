@@ -25,13 +25,13 @@ function select(str){
 
 function select_small_img(num) {
     index = Number(num) + 1;
-    return select('.small-img .img-preview:nth-child(' + num + ')');
+    return select('.small-img a:nth-child(' + num + ') .img-preview');
 }
 
 function change_big_img(new_img) {
     // add fade and change image source
     big_img.style.opacity = '0%';
-    var new_src = new_img.src
+    var new_src = new_img.src;
     setTimeout(()=>{big_img.setAttribute("src", new_src)}, 200);
     setTimeout(()=>{big_img.style.opacity = '100%'}, 350);
 }

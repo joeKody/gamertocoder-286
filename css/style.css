@@ -133,7 +133,7 @@ h1 {
     object-fit: contain;
 
     background-size: cover;
-    background-image: url('/images/1.jpg');
+    background-image: url('../images/1.jpg');
     background-repeat: no-repeat;
     background-position: center;
     /* animation: change-img 10s linear infinite; */
@@ -205,6 +205,10 @@ h1 {
     gap: 0.6rem;
 
     width: 35%;
+}
+
+.small-img > a {
+    width: 100%;
 }
 
 .img-preview {
