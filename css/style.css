@@ -16,6 +16,7 @@ selector {
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
+
 * {
     margin: 0;
     padding: 0;
@@ -130,7 +131,26 @@ h1 {
     height: auto;
     max-height: auto;
     object-fit: contain;
+
+    background-size: cover;
+    background-image: url('/images/1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    /* animation: change-img 10s linear infinite; */
 }
+
+/* @keyframes change-img {
+    0%{background-image: url('/images/1.jpg'); opacity: 1;}
+    12%{opacity: 0;}
+    14%{opacity: 1;}
+    15% {background-image: url('/images/2.jpg');}
+    30% {background-image: url('/images/4.jpg');}
+    45% {background-image: url('/images/5.jpg');}
+    60% {background-image: url('/images/6.jpg');}
+    75% {background-image: url('/images/7.png');}
+    90% {background-image: url('/images/8.png');}
+} */
+
 
 /* Promotion */
 .promoting {
@@ -139,6 +159,11 @@ h1 {
 
     padding: 2rem;
     padding-bottom: 3rem;
+}
+
+.promoting img {
+    box-shadow: 0 0 20px #1d1d1d;
+    border-radius: 0.3rem;
 }
 
 .promoting * {
@@ -163,8 +188,12 @@ h1 {
     align-items: center;
 }
 
+.games-promo a {
+    width: 60%;
+}
+
 .big-img {
-    width: 50%;
+    width: 100%;
     transition: all 300ms ease;
 }
 
@@ -227,23 +256,67 @@ h1 {
 
 .question-text {
     display: block;
-    margin: 0.5rem 0;
+    margin: 1rem 0;
 }
 
-/* .question input {
+.genre-input {
     display: none; 
-} */
+}
+
+.material-symbols-outlined{
+    margin-left: 0.4rem;
+
+    width: 0;
+    scale: 0;
+    transform: translateY(15%);
+    transition: none;
+}
+
+.genre-input:checked ~ .material-symbols-outlined {
+    transition: all 450ms ease;
+    width: auto;
+    scale: 1;
+}
 
 .question label {
-    margin: 0.2rem;
-    padding: 0.3rem;
+    margin: 0.3rem;
+    padding: 0.5rem 0.7rem;
+    
+    scale: 1;
+    border-radius: 1rem;
+    opacity: 50%;
     border: 2px solid white;
+    transition: all 300ms ease;
+    cursor: pointer;
 }
+
+
+.question label:hover{
+    opacity: 100%;
+}
+
 
 #choose-game-btn {
     margin-top: 1.5rem;
-    padding: 0.3rem;
+    padding: 0.5rem;
+
+    font-family: inherit;
+    background-color: transparent;
+    border: 0.15rem solid white;
+    border-radius: 1rem;
+    cursor: pointer;
+    color: white;
     font-size: 1.3rem;
+    transition: all 300ms ease;
+}
+
+#choose-game-btn:hover {
+    box-shadow: 0 0 10px #e1e1e1;
+}
+
+#choose-game-btn:active {
+    transform: scale(0.95);
+    box-shadow: none;
 }
 
 #chosen-game-container {
@@ -255,8 +328,13 @@ h1 {
 }
 
 #chosen-game-container *{
-    transition: all 300ms ease;
+    transition: all 727ms ease;
 }
+
+#chosen-game-container div:hover {
+    scale: 1.04;
+}
+
 
 .chosen-game {
     width: max-content;
