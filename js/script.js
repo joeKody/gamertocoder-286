@@ -129,6 +129,7 @@ choose_game_btn.addEventListener("click", ()=>{
             var title = document.createElement('h3');
             var level = document.createElement('span');
             var img = document.createElement('img');
+            var anchor = document.createElement('a');
 
             title.innerText = game_like_list[y].name;
             title.style.marginBottom = '0.5rem';
@@ -148,13 +149,44 @@ choose_game_btn.addEventListener("click", ()=>{
                 level.innerText = 'You should give this game a try too!';
             }
 
+            var current_name_like = game_like_list[y].name.toLowerCase();
+            if (current_name_like.includes("bed")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/1/";
+            } else if (current_name_like.includes("city")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/4/";
+            }  else if (current_name_like.includes("frontline")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/95/";
+            } else if (current_name_like.includes("party")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/97/";
+            } else if (current_name_like.includes("bullets")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/11/";
+            } else if (current_name_like.includes("rodent")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/13/";
+            } else if (current_name_like.includes("jail")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/9/";
+            } else if (current_name_like.includes("build")){
+                anchor.href = "https://pc.blockmanmobile.com/#/game-details/g1042?onlineNumber=1991";
+            } else if (current_name_like.includes("skyblock")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/2/";
+            } else if (current_name_like.includes("egg")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/3/";
+            } else if (current_name_like.includes("district")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/47/";
+            } else if (current_name_like.includes("night")){
+                anchor.href = "https://pc.blockmanmobile.com/#/game-details/g2046?onlineNumber=689";
+            }
+
+            anchor.target = "_blank";
+            anchor.style.color = "white";
+
             img.style.padding = '1rem';
             img.style.borderRadius = '2rem';
             fig.appendChild(capt);
             capt.appendChild(title);
             capt.appendChild(level);
             fig.appendChild(img);
-            box.appendChild(fig);
+            anchor.appendChild(fig);
+            box.appendChild(anchor);
             box.classList.add('chosen-game');
             box.style.boxShadow = '0 0 20px #1f1f1f'
             container.appendChild(box);
