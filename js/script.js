@@ -48,6 +48,7 @@ setInterval(() => {
 // Choose game functionality
 var choose_game_btn = select('#choose-game-btn');
 choose_game_btn.addEventListener("click", ()=>{
+    var troll;
     var genre_inputs = document.getElementsByClassName("genre-input");
     let genre_results = {};
     // add value of genre with checked inputs
@@ -61,7 +62,7 @@ choose_game_btn.addEventListener("click", ()=>{
     var container = select('#chosen-game-container');
     container.innerHTML = '';
     if (genre_results_keys.length !== 6){
-        container.innerHTML = '<h2>You have to select choose all the options first!</h2>';
+        container.innerHTML = '<h2>You have to choose all the options first!</h2>';
         container.style.display = 'block';
     } else {
 
@@ -89,12 +90,28 @@ choose_game_btn.addEventListener("click", ()=>{
                     } else if (current_genre.includes("survi")){
                         current_genre = "sandbox";
                     }
-                    
+
                     if (current_genre.includes(current_key)){
                         if (genre_results[current_key] == 'yes'){
                             current_game['like'] += 2;
+                            if (troll == undefined){
+                                troll = 'yes'
+                            } else if (troll === 'yes'){
+                                // bruh
+                            } else {troll = 'none'}
                         } else if (genre_results[current_key] == 'no') {
                             current_game['like'] -= 1;
+                            if (troll == undefined){
+                                troll = 'no'
+                            } else if (troll === 'no'){
+                                //bruh
+                            } else {troll = 'none'}
+                        } else {
+                            if (troll == undefined){
+                                troll = 'not sure'
+                            } else if (troll === 'not sure'){
+                                // bruh
+                            } else {troll = 'none'}
                         }
                     }
                 }
@@ -103,6 +120,14 @@ choose_game_btn.addEventListener("click", ()=>{
 
            
 
+        }
+
+        if (troll !== 'none'){
+            var troll_header = document.createElement('h2')
+            troll_header.innerText = "Well, if you like to answer " + '"' + troll + '"' + " so much then why not give our team some extra score?"
+            troll_header.style.gridColumn = 'span 3';
+            troll_header.style.marginBottom = '2rem';
+            container.appendChild(troll_header);
         }
 
         var game_like_list = [];
@@ -129,6 +154,7 @@ choose_game_btn.addEventListener("click", ()=>{
             var title = document.createElement('h3');
             var level = document.createElement('span');
             var img = document.createElement('img');
+            var anchor = document.createElement('a');
 
             title.innerText = game_like_list[y].name;
             title.style.marginBottom = '0.5rem';
@@ -148,13 +174,44 @@ choose_game_btn.addEventListener("click", ()=>{
                 level.innerText = 'You should give this game a try too!';
             }
 
+            var current_name_like = game_like_list[y].name.toLowerCase();
+            if (current_name_like.includes("bed")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/1/";
+            } else if (current_name_like.includes("city")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/4/";
+            }  else if (current_name_like.includes("frontline")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/95/";
+            } else if (current_name_like.includes("party")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/97/";
+            } else if (current_name_like.includes("bullets")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/11/";
+            } else if (current_name_like.includes("rodent")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/13/";
+            } else if (current_name_like.includes("jail")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/9/";
+            } else if (current_name_like.includes("build")){
+                anchor.href = "https://pc.blockmanmobile.com/#/game-details/g1042?onlineNumber=1991";
+            } else if (current_name_like.includes("sky")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/2/";
+            } else if (current_name_like.includes("egg")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/3/";
+            } else if (current_name_like.includes("district")){
+                anchor.href = "https://blockmango.garena.com/mini_games/article/en/47/";
+            } else if (current_name_like.includes("night")){
+                anchor.href = "https://pc.blockmanmobile.com/#/game-details/g2046?onlineNumber=689";
+            }
+
+            anchor.target = "_blank";
+            anchor.style.color = "white";
+
             img.style.padding = '1rem';
             img.style.borderRadius = '2rem';
             fig.appendChild(capt);
             capt.appendChild(title);
             capt.appendChild(level);
             fig.appendChild(img);
-            box.appendChild(fig);
+            anchor.appendChild(fig);
+            box.appendChild(anchor);
             box.classList.add('chosen-game');
             box.style.boxShadow = '0 0 20px #1f1f1f'
             container.appendChild(box);

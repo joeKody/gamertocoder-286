@@ -45,7 +45,7 @@ html {
 /* Menu bar */
 
 nav {
-    /* position: sticky; */
+    position: sticky;
     top: 0;
     z-index: 3;
     display: flex;
@@ -132,24 +132,31 @@ h1 {
     max-height: auto;
     object-fit: contain;
 
+    border-radius: 0.15rem;
+    box-shadow: 0 0 30px #1f1f1f;
     background-size: cover;
     background-image: url('../images/1.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    /* animation: change-img 10s linear infinite; */
+    animation: change-img 70s linear infinite;
 }
 
-/* @keyframes change-img {
-    0%{background-image: url('/images/1.jpg'); opacity: 1;}
-    12%{opacity: 0;}
-    14%{opacity: 1;}
-    15% {background-image: url('/images/2.jpg');}
-    30% {background-image: url('/images/4.jpg');}
-    45% {background-image: url('/images/5.jpg');}
-    60% {background-image: url('/images/6.jpg');}
-    75% {background-image: url('/images/7.png');}
-    90% {background-image: url('/images/8.png');}
-} */
+@keyframes change-img {
+    0%  {background-image: url('../images/1.jpg');}
+    14%  {background-image: url('../images/1.jpg');}
+    15% {background-image: url('../images/2.jpg');}
+    29% {background-image: url('../images/2.jpg');}
+    30% {background-image: url('../images/4.jpg');}
+    44% {background-image: url('../images/4.jpg');}
+    45% {background-image: url('../images/5.jpg');}
+    59% {background-image: url('../images/5.jpg');}
+    60% {background-image: url('../images/6.jpg');}
+    74% {background-image: url('../images/6.jpg');}
+    75% {background-image: url('../images/7.png');}
+    89% {background-image: url('../images/7.png');}
+    90% {background-image: url('../images/8.png');}
+    99% {background-image: url('../images/8.png');}
+}
 
 
 /* Promotion */
